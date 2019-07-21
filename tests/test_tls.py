@@ -313,7 +313,7 @@ class ContextTest(TestCase):
         self.assertEqual(client.state, State.CLIENT_EXPECT_SERVER_HELLO)
         server_input = merge_buffers(client_buf)
         self.assertGreaterEqual(len(server_input), 213)
-        self.assertLessEqual(len(server_input), 264)
+        self.assertLessEqual(len(server_input), 296)
         reset_buffers(client_buf)
 
         # handle client hello
@@ -401,7 +401,7 @@ class ContextTest(TestCase):
         client.handle_message(b"", client_buf)
         self.assertEqual(client.state, State.CLIENT_EXPECT_SERVER_HELLO)
         server_input = merge_buffers(client_buf)
-        self.assertEqual(len(server_input), 258)
+        self.assertEqual(len(server_input), 296)
         reset_buffers(client_buf)
 
         # handle client hello
@@ -477,7 +477,7 @@ class ContextTest(TestCase):
             client.handle_message(b"", client_buf)
             self.assertEqual(client.state, State.CLIENT_EXPECT_SERVER_HELLO)
             server_input = merge_buffers(client_buf)
-            self.assertEqual(len(server_input), 383)
+            self.assertEqual(len(server_input), 421)
             reset_buffers(client_buf)
 
             # handle client hello
@@ -525,7 +525,7 @@ class ContextTest(TestCase):
             client.handle_message(b"", client_buf)
             self.assertEqual(client.state, State.CLIENT_EXPECT_SERVER_HELLO)
             server_input = merge_buffers(client_buf)
-            self.assertEqual(len(server_input), 383)
+            self.assertEqual(len(server_input), 421)
             reset_buffers(client_buf)
 
             # tamper with binder
@@ -550,7 +550,7 @@ class ContextTest(TestCase):
             client.handle_message(b"", client_buf)
             self.assertEqual(client.state, State.CLIENT_EXPECT_SERVER_HELLO)
             server_input = merge_buffers(client_buf)
-            self.assertEqual(len(server_input), 383)
+            self.assertEqual(len(server_input), 421)
             reset_buffers(client_buf)
 
             # handle client hello
